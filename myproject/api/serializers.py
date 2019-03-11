@@ -23,3 +23,10 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
         user.save()
         Token.objects.create(user=user)
         return user
+
+
+class DefaultSerializer(serializers.HyperlinkedModelSerializer):
+
+    class Meta:
+        model = User
+        fields = ('id', 'username', 'password')
